@@ -213,10 +213,46 @@ namespace KeyPayV2.Uk.Functions
         Task<byte[]> PayRunVarianceReportAsync(int businessId, CancellationToken cancellationToken = default);
         byte[] PayRunVarianceReport(int businessId, PayRunVarianceReportQueryModel request);
         Task<byte[]> PayRunVarianceReportAsync(int businessId, PayRunVarianceReportQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportCreativePensionsCsvFile(int businessId);
+        Task<byte[]> PensionContributionsReportCreativePensionsCsvFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportCreativePensionsCsvFile(int businessId, PensionContributionsReportCreativePensionsCsvFileQueryModel request);
+        Task<byte[]> PensionContributionsReportCreativePensionsCsvFileAsync(int businessId, PensionContributionsReportCreativePensionsCsvFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportCsvFile(int businessId);
+        Task<byte[]> PensionContributionsReportCsvFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportCsvFile(int businessId, PensionContributionsReportCsvFileQueryModel request);
+        Task<byte[]> PensionContributionsReportCsvFileAsync(int businessId, PensionContributionsReportCsvFileQueryModel request, CancellationToken cancellationToken = default);
         byte[] PensionContributionsReportExcelFile(int businessId);
         Task<byte[]> PensionContributionsReportExcelFileAsync(int businessId, CancellationToken cancellationToken = default);
         byte[] PensionContributionsReportExcelFile(int businessId, PensionContributionsReportExcelFileQueryModel request);
         Task<byte[]> PensionContributionsReportExcelFileAsync(int businessId, PensionContributionsReportExcelFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportOptionsPensionsCsvFile(int businessId);
+        Task<byte[]> PensionContributionsReportOptionsPensionsCsvFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportOptionsPensionsCsvFile(int businessId, PensionContributionsReportOptionsPensionsCsvFileQueryModel request);
+        Task<byte[]> PensionContributionsReportOptionsPensionsCsvFileAsync(int businessId, PensionContributionsReportOptionsPensionsCsvFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportPdfFile(int businessId);
+        Task<byte[]> PensionContributionsReportPdfFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportPdfFile(int businessId, PensionContributionsReportPdfFileQueryModel request);
+        Task<byte[]> PensionContributionsReportPdfFileAsync(int businessId, PensionContributionsReportPdfFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportRoyalLondon2CsvFile(int businessId);
+        Task<byte[]> PensionContributionsReportRoyalLondon2CsvFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportRoyalLondon2CsvFile(int businessId, PensionContributionsReportRoyalLondon2CsvFileQueryModel request);
+        Task<byte[]> PensionContributionsReportRoyalLondon2CsvFileAsync(int businessId, PensionContributionsReportRoyalLondon2CsvFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportRoyalLondonCsvFile(int businessId);
+        Task<byte[]> PensionContributionsReportRoyalLondonCsvFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportRoyalLondonCsvFile(int businessId, PensionContributionsReportRoyalLondonCsvFileQueryModel request);
+        Task<byte[]> PensionContributionsReportRoyalLondonCsvFileAsync(int businessId, PensionContributionsReportRoyalLondonCsvFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportScottishWidowsExcelFile(int businessId);
+        Task<byte[]> PensionContributionsReportScottishWidowsExcelFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportScottishWidowsExcelFile(int businessId, PensionContributionsReportScottishWidowsExcelFileQueryModel request);
+        Task<byte[]> PensionContributionsReportScottishWidowsExcelFileAsync(int businessId, PensionContributionsReportScottishWidowsExcelFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportStandardLifeZipFile(int businessId);
+        Task<byte[]> PensionContributionsReportStandardLifeZipFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportStandardLifeZipFile(int businessId, PensionContributionsReportStandardLifeZipFileQueryModel request);
+        Task<byte[]> PensionContributionsReportStandardLifeZipFileAsync(int businessId, PensionContributionsReportStandardLifeZipFileQueryModel request, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportThePeoplesPensionExcelFile(int businessId);
+        Task<byte[]> PensionContributionsReportThePeoplesPensionExcelFileAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] PensionContributionsReportThePeoplesPensionExcelFile(int businessId, PensionContributionsReportThePeoplesPensionExcelFileQueryModel request);
+        Task<byte[]> PensionContributionsReportThePeoplesPensionExcelFileAsync(int businessId, PensionContributionsReportThePeoplesPensionExcelFileQueryModel request, CancellationToken cancellationToken = default);
         void EmployeeAuditExcelReport(int businessId);
         Task EmployeeAuditExcelReportAsync(int businessId, CancellationToken cancellationToken = default);
         void EmployeeAuditExcelReport(int businessId, EmployeeAuditExcelReportQueryModel request);
@@ -2243,6 +2279,94 @@ namespace KeyPayV2.Uk.Functions
         }
 
         /// <summary>
+        /// Pension Contributions Report Creative Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Creative Pensions csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportCreativePensionsCsvFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/creative_pensions", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Creative Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Creative Pensions csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportCreativePensionsCsvFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/creative_pensions", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Creative Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Creative Pensions csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportCreativePensionsCsvFile(int businessId, PensionContributionsReportCreativePensionsCsvFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/creative_pensions{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Creative Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Creative Pensions csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportCreativePensionsCsvFileAsync(int businessId, PensionContributionsReportCreativePensionsCsvFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/creative_pensions{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in csv.
+        /// </remarks>
+        public byte[] PensionContributionsReportCsvFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/csv", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in csv.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportCsvFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/csv", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in csv.
+        /// </remarks>
+        public byte[] PensionContributionsReportCsvFile(int businessId, PensionContributionsReportCsvFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/csv{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in csv.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportCsvFileAsync(int businessId, PensionContributionsReportCsvFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/csv{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
         /// Pension Contributions Report excel file
         /// </summary>
         /// <remarks>
@@ -2284,6 +2408,318 @@ namespace KeyPayV2.Uk.Functions
         public Task<byte[]> PensionContributionsReportExcelFileAsync(int businessId, PensionContributionsReportExcelFileQueryModel request, CancellationToken cancellationToken = default)
         {
             return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/xlsx{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Options Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Options Pensions csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportOptionsPensionsCsvFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/options_pensions", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Options Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Options Pensions csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportOptionsPensionsCsvFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/options_pensions", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Options Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Options Pensions csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportOptionsPensionsCsvFile(int businessId, PensionContributionsReportOptionsPensionsCsvFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/options_pensions{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Options Pensions csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Options Pensions csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportOptionsPensionsCsvFileAsync(int businessId, PensionContributionsReportOptionsPensionsCsvFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/options_pensions{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report pdf file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in pdf.
+        /// </remarks>
+        public byte[] PensionContributionsReportPdfFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/pdf", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report pdf file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in pdf.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportPdfFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/pdf", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report pdf file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in pdf.
+        /// </remarks>
+        public byte[] PensionContributionsReportPdfFile(int businessId, PensionContributionsReportPdfFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/pdf{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report pdf file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in pdf.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportPdfFileAsync(int businessId, PensionContributionsReportPdfFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/pdf{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London 2 csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London 2 csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportRoyalLondon2CsvFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/royal_london_2", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London 2 csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London 2 csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportRoyalLondon2CsvFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/royal_london_2", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London 2 csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London 2 csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportRoyalLondon2CsvFile(int businessId, PensionContributionsReportRoyalLondon2CsvFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/royal_london_2{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London 2 csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London 2 csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportRoyalLondon2CsvFileAsync(int businessId, PensionContributionsReportRoyalLondon2CsvFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/royal_london_2{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportRoyalLondonCsvFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/royal_london", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportRoyalLondonCsvFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/royal_london", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London csv format.
+        /// </remarks>
+        public byte[] PensionContributionsReportRoyalLondonCsvFile(int businessId, PensionContributionsReportRoyalLondonCsvFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/royal_london{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Royal London csv file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Royal London csv format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportRoyalLondonCsvFileAsync(int businessId, PensionContributionsReportRoyalLondonCsvFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/royal_london{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Scottish Widows excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Scottish Widows excel format.
+        /// </remarks>
+        public byte[] PensionContributionsReportScottishWidowsExcelFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/scottish_widows", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Scottish Widows excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Scottish Widows excel format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportScottishWidowsExcelFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/scottish_widows", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Scottish Widows excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Scottish Widows excel format.
+        /// </remarks>
+        public byte[] PensionContributionsReportScottishWidowsExcelFile(int businessId, PensionContributionsReportScottishWidowsExcelFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/scottish_widows{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Scottish Widows excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the Scottish Widows excel format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportScottishWidowsExcelFileAsync(int businessId, PensionContributionsReportScottishWidowsExcelFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/scottish_widows{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Standard Life zip file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report containing the Standard Life member data and
+        /// contributions csv files, packaged as a zip.
+        /// </remarks>
+        public byte[] PensionContributionsReportStandardLifeZipFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/standard_life", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Standard Life zip file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report containing the Standard Life member data and
+        /// contributions csv files, packaged as a zip.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportStandardLifeZipFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/standard_life", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Standard Life zip file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report containing the Standard Life member data and
+        /// contributions csv files, packaged as a zip.
+        /// </remarks>
+        public byte[] PensionContributionsReportStandardLifeZipFile(int businessId, PensionContributionsReportStandardLifeZipFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/standard_life{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report Standard Life zip file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report containing the Standard Life member data and
+        /// contributions csv files, packaged as a zip.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportStandardLifeZipFileAsync(int businessId, PensionContributionsReportStandardLifeZipFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/standard_life{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report The People's Pension excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the People's Pension excel format.
+        /// </remarks>
+        public byte[] PensionContributionsReportThePeoplesPensionExcelFile(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/peoples_pension", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report The People's Pension excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the People's Pension excel format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportThePeoplesPensionExcelFileAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/peoples_pension", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report The People's Pension excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the People's Pension excel format.
+        /// </remarks>
+        public byte[] PensionContributionsReportThePeoplesPensionExcelFile(int businessId, PensionContributionsReportThePeoplesPensionExcelFileQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/pensioncontributions/peoples_pension{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pension Contributions Report The People's Pension excel file
+        /// </summary>
+        /// <remarks>
+        /// Generates a pension contributions report in the People's Pension excel format.
+        /// </remarks>
+        public Task<byte[]> PensionContributionsReportThePeoplesPensionExcelFileAsync(int businessId, PensionContributionsReportThePeoplesPensionExcelFileQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/pensioncontributions/peoples_pension{ToQueryString("EmployeeId=" + request.EmployeeId, "PayRunId=" + request.PayRunId, "FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "LocationId=" + request.LocationId, "ContributionPlanId=" + request.ContributionPlanId)}", Method.Get, cancellationToken);
         }
 
         /// <summary>
