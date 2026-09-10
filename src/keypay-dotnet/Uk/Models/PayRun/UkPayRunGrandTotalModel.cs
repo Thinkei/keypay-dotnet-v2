@@ -9,6 +9,8 @@ namespace KeyPayV2.Uk.Models.PayRun
     public class UkPayRunGrandTotalModel
     {
         public decimal EmployerNationalInsuranceContribution { get; set; }
+        public decimal EmployerClass1ANationalInsuranceContribution { get; set; }
+        public decimal EmployerNationalInsuranceContributionIncludingClass1A { get; set; }
         public decimal EmployeeNationalInsuranceContribution { get; set; }
         public decimal Pension { get; set; }
         public decimal EmployeePensionContributionAmount { get; set; }

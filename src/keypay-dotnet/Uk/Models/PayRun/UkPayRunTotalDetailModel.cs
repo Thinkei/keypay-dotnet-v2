@@ -15,6 +15,8 @@ namespace KeyPayV2.Uk.Models.PayRun
         public decimal PayeAdjustmentsAmount { get; set; }
         public decimal PayePaymentTotal { get; set; }
         public decimal EmployerNationalInsuranceContribution { get; set; }
+        public decimal EmployerClass1ANationalInsuranceContribution { get; set; }
+        public decimal EmployerNationalInsuranceContributionIncludingClass1A { get; set; }
         public decimal EmployeeNationalInsuranceContribution { get; set; }
         public decimal PensionContributionAmount { get; set; }
         public decimal EmployeePensionContributionAmount { get; set; }
