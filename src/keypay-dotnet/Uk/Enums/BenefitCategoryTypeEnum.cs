@@ -36,6 +36,7 @@ namespace KeyPayV2.Uk.Enums
         RRSPRestricted,
         RRSPNonRestricted,
         Custom,
-        DPSP
+        DPSP,
+        RPP
     }
 }
