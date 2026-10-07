@@ -7,6 +7,7 @@ namespace KeyPayV2.Au.Enums
     {
         Ongoing,
         Yearly,
-        BasedOnLengthOfService
+        BasedOnLengthOfService,
+        Monthly
     }
 }

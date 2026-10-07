@@ -7,6 +7,7 @@ namespace KeyPayV2.My.Enums
     {
         Ongoing,
         Yearly,
-        BasedOnLengthOfService
+        BasedOnLengthOfService,
+        Monthly
     }
 }

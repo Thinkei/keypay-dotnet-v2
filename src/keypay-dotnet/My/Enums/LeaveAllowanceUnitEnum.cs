@@ -12,6 +12,7 @@ namespace KeyPayV2.My.Enums
         StandardDays,
         StandardWeeks,
         DayPerCalendarDay,
-        DayPerMonth
+        DayPerMonth,
+        StandardDaysPerMonth
     }
 }
