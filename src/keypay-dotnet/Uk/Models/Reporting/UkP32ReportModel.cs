@@ -12,5 +12,6 @@ namespace KeyPayV2.Uk.Models.Reporting
         public IList<UkP32ReportPeriod> P32ReportMonths { get; set; }
         public IList<UkP32ReportPeriod> P32ReportQuarters { get; set; }
         public UkP32ReportPeriod P32ReportTotals { get; set; }
+        public string EmploymentAllowanceHmrcStatus { get; set; }
     }
 }
