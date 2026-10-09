@@ -11,6 +11,7 @@ namespace KeyPayV2.Sg.Enums
         PaymentApproverAllSchedules,
         PaymentApproverSelectedSchedules,
         PayRunCreatorAllSchedules,
-        PayRunCreatorSelectedSchedules
+        PayRunCreatorSelectedSchedules,
+        ManuallyAddEmployee
     }
 }

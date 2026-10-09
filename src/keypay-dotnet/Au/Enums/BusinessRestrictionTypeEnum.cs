@@ -11,6 +11,7 @@ namespace KeyPayV2.Au.Enums
         PaymentApproverAllSchedules,
         PaymentApproverSelectedSchedules,
         PayRunCreatorAllSchedules,
-        PayRunCreatorSelectedSchedules
+        PayRunCreatorSelectedSchedules,
+        ManuallyAddEmployee
     }
 }
