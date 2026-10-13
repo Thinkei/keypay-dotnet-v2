@@ -119,12 +119,24 @@ namespace KeyPayV2.Au.Functions
         Task<List<dynamic>> EmployeeDetailsReportAsync(int businessId, EmployeeDetailsReportQueryModel request, CancellationToken cancellationToken = default);
         List<dynamic> EmployeeDetailsReport(int businessId, EmployeeDetailsReportRequestModel model);
         Task<List<dynamic>> EmployeeDetailsReportAsync(int businessId, EmployeeDetailsReportRequestModel model, CancellationToken cancellationToken = default);
+        PccReportApiModel PayConditionsComparisonReport(int businessId);
+        Task<PccReportApiModel> PayConditionsComparisonReportAsync(int businessId, CancellationToken cancellationToken = default);
+        PccReportApiModel PayConditionsComparisonReport(int businessId, PayConditionsComparisonReportQueryModel request);
+        Task<PccReportApiModel> PayConditionsComparisonReportAsync(int businessId, PayConditionsComparisonReportQueryModel request, CancellationToken cancellationToken = default);
+        PccReportJobStatusResponse RequestPayConditionsComparisonReportAsExcel(int businessId, PccExcelReportApiRequestModel request);
+        Task<PccReportJobStatusResponse> RequestPayConditionsComparisonReportAsExcelAsync(int businessId, PccExcelReportApiRequestModel request, CancellationToken cancellationToken = default);
+        PccReportJobStatusResponse RequestPayConditionsComparisonReportAsPdf(int businessId, PccReportApiRequestModel request);
+        Task<PccReportJobStatusResponse> RequestPayConditionsComparisonReportAsPdfAsync(int businessId, PccReportApiRequestModel request, CancellationToken cancellationToken = default);
         ReportLeaveLiabilityPreparationResponse PrepareLeaveLiabilityReport(int businessId, ReportLeaveLiabilityRequestModel request);
         Task<ReportLeaveLiabilityPreparationResponse> PrepareLeaveLiabilityReportAsync(int businessId, ReportLeaveLiabilityRequestModel request, CancellationToken cancellationToken = default);
         byte[] DetailedActivityReportAsExcel(int businessId);
         Task<byte[]> DetailedActivityReportAsExcelAsync(int businessId, CancellationToken cancellationToken = default);
         byte[] DetailedActivityReportAsExcel(int businessId, DetailedActivityReportAsExcelQueryModel request);
         Task<byte[]> DetailedActivityReportAsExcelAsync(int businessId, DetailedActivityReportAsExcelQueryModel request, CancellationToken cancellationToken = default);
+        byte[] DownloadPayConditionsComparisonReport(int businessId);
+        Task<byte[]> DownloadPayConditionsComparisonReportAsync(int businessId, CancellationToken cancellationToken = default);
+        byte[] DownloadPayConditionsComparisonReport(int businessId, DownloadPayConditionsComparisonReportQueryModel request);
+        Task<byte[]> DownloadPayConditionsComparisonReportAsync(int businessId, DownloadPayConditionsComparisonReportQueryModel request, CancellationToken cancellationToken = default);
         byte[] EmployeePaymentHistoryReportAsExcel(int businessId);
         Task<byte[]> EmployeePaymentHistoryReportAsExcelAsync(int businessId, CancellationToken cancellationToken = default);
         byte[] EmployeePaymentHistoryReportAsExcel(int businessId, EmployeePaymentHistoryReportAsExcelQueryModel request);
@@ -1303,6 +1315,98 @@ namespace KeyPayV2.Au.Functions
         }
 
         /// <summary>
+        /// Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Generates the pay conditions comparison report as JSON, grouped by primary location then employee.
+        /// </remarks>
+        public PccReportApiModel PayConditionsComparisonReport(int businessId)
+        {
+            return ApiRequest<PccReportApiModel>($"/business/{businessId}/report/payconditioncomparison", Method.Get);
+        }
+
+        /// <summary>
+        /// Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Generates the pay conditions comparison report as JSON, grouped by primary location then employee.
+        /// </remarks>
+        public Task<PccReportApiModel> PayConditionsComparisonReportAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<PccReportApiModel>($"/business/{businessId}/report/payconditioncomparison", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Generates the pay conditions comparison report as JSON, grouped by primary location then employee.
+        /// </remarks>
+        public PccReportApiModel PayConditionsComparisonReport(int businessId, PayConditionsComparisonReportQueryModel request)
+        {
+            return ApiRequest<PccReportApiModel>($"/business/{businessId}/report/payconditioncomparison{ToQueryString("PeriodSelectionType=" + request.PeriodSelectionType, "StartDate=" + (request.StartDate.HasValue ? request.StartDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "EndDate=" + (request.EndDate.HasValue ? request.EndDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "PayRunId=" + request.PayRunId, "ServicePeriodType=" + request.ServicePeriodType, "ServicePeriodStartDate=" + (request.ServicePeriodStartDate.HasValue ? request.ServicePeriodStartDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ServicePeriodEndDate=" + (request.ServicePeriodEndDate.HasValue ? request.ServicePeriodEndDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "EmployingEntityId=" + request.EmployingEntityId, "LocationId=" + request.LocationId, "EmployeeId=" + request.EmployeeId, "NegativeVariancesOnly=" + request.NegativeVariancesOnly)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Generates the pay conditions comparison report as JSON, grouped by primary location then employee.
+        /// </remarks>
+        public Task<PccReportApiModel> PayConditionsComparisonReportAsync(int businessId, PayConditionsComparisonReportQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<PccReportApiModel>($"/business/{businessId}/report/payconditioncomparison{ToQueryString("PeriodSelectionType=" + request.PeriodSelectionType, "StartDate=" + (request.StartDate.HasValue ? request.StartDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "EndDate=" + (request.EndDate.HasValue ? request.EndDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "PayScheduleId=" + request.PayScheduleId, "PayRunId=" + request.PayRunId, "ServicePeriodType=" + request.ServicePeriodType, "ServicePeriodStartDate=" + (request.ServicePeriodStartDate.HasValue ? request.ServicePeriodStartDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ServicePeriodEndDate=" + (request.ServicePeriodEndDate.HasValue ? request.ServicePeriodEndDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "EmployingEntityId=" + request.EmployingEntityId, "LocationId=" + request.LocationId, "EmployeeId=" + request.EmployeeId, "NegativeVariancesOnly=" + request.NegativeVariancesOnly)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Request Pay Conditions Comparison Report as Excel
+        /// </summary>
+        /// <remarks>
+        /// Enqueues a background job to generate the pay conditions comparison report as an Excel (.xlsx) file.
+        /// Once the job completes (reported on the job status channel for the returned job id), call `download` to download it.
+        /// </remarks>
+        public PccReportJobStatusResponse RequestPayConditionsComparisonReportAsExcel(int businessId, PccExcelReportApiRequestModel request)
+        {
+            return ApiRequest<PccReportJobStatusResponse,PccExcelReportApiRequestModel>($"/business/{businessId}/report/payconditioncomparison/xlsx/request", request, Method.Post);
+        }
+
+        /// <summary>
+        /// Request Pay Conditions Comparison Report as Excel
+        /// </summary>
+        /// <remarks>
+        /// Enqueues a background job to generate the pay conditions comparison report as an Excel (.xlsx) file.
+        /// Once the job completes (reported on the job status channel for the returned job id), call `download` to download it.
+        /// </remarks>
+        public Task<PccReportJobStatusResponse> RequestPayConditionsComparisonReportAsExcelAsync(int businessId, PccExcelReportApiRequestModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<PccReportJobStatusResponse,PccExcelReportApiRequestModel>($"/business/{businessId}/report/payconditioncomparison/xlsx/request", request, Method.Post, cancellationToken);
+        }
+
+        /// <summary>
+        /// Request Pay Conditions Comparison Report as PDF
+        /// </summary>
+        /// <remarks>
+        /// Enqueues a background job to generate the pay conditions comparison report as a PDF file. Once the job
+        /// completes (reported on the job status channel for the returned job id), call `download` to download it.
+        /// </remarks>
+        public PccReportJobStatusResponse RequestPayConditionsComparisonReportAsPdf(int businessId, PccReportApiRequestModel request)
+        {
+            return ApiRequest<PccReportJobStatusResponse,PccReportApiRequestModel>($"/business/{businessId}/report/payconditioncomparison/pdf/request", request, Method.Post);
+        }
+
+        /// <summary>
+        /// Request Pay Conditions Comparison Report as PDF
+        /// </summary>
+        /// <remarks>
+        /// Enqueues a background job to generate the pay conditions comparison report as a PDF file. Once the job
+        /// completes (reported on the job status channel for the returned job id), call `download` to download it.
+        /// </remarks>
+        public Task<PccReportJobStatusResponse> RequestPayConditionsComparisonReportAsPdfAsync(int businessId, PccReportApiRequestModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<PccReportJobStatusResponse,PccReportApiRequestModel>($"/business/{businessId}/report/payconditioncomparison/pdf/request", request, Method.Post, cancellationToken);
+        }
+
+        /// <summary>
         /// Prepare Leave Liability report
         /// </summary>
         /// <remarks>
@@ -1366,6 +1470,54 @@ namespace KeyPayV2.Au.Functions
         public Task<byte[]> DetailedActivityReportAsExcelAsync(int businessId, DetailedActivityReportAsExcelQueryModel request, CancellationToken cancellationToken = default)
         {
             return ApiByteArrayRequestAsync($"/business/{businessId}/report/detailedactivity/xlsx{ToQueryString("FromDate=" + (request.FromDate.HasValue ? request.FromDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "ToDate=" + (request.ToDate.HasValue ? request.ToDate.Value.ToString("yyyy-MM-ddTHH:mm:ss") : String.Empty), "GroupBy=" + request.GroupBy, "FilterType=" + request.FilterType, "PayRunId=" + request.PayRunId, "PayScheduleId=" + request.PayScheduleId, QsArr("LocationsIds", request.LocationsIds?.Select(x => x.ToString())), QsArr("EmployeeIds", request.EmployeeIds?.Select(x => x.ToString())), "IncludePostTaxDeductions=" + request.IncludePostTaxDeductions, "ShowLocationTotalsOnly=" + request.ShowLocationTotalsOnly, "IncludeEmployeePayRunBreakdown=" + request.IncludeEmployeePayRunBreakdown)}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Download Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Downloads the file (PDF or Excel) generated by a completed job previously started via
+        /// `pdf/request` or `xlsx/request`.
+        /// </remarks>
+        public byte[] DownloadPayConditionsComparisonReport(int businessId)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/payconditioncomparison/download", Method.Get);
+        }
+
+        /// <summary>
+        /// Download Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Downloads the file (PDF or Excel) generated by a completed job previously started via
+        /// `pdf/request` or `xlsx/request`.
+        /// </remarks>
+        public Task<byte[]> DownloadPayConditionsComparisonReportAsync(int businessId, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/payconditioncomparison/download", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Download Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Downloads the file (PDF or Excel) generated by a completed job previously started via
+        /// `pdf/request` or `xlsx/request`.
+        /// </remarks>
+        public byte[] DownloadPayConditionsComparisonReport(int businessId, DownloadPayConditionsComparisonReportQueryModel request)
+        {
+            return ApiByteArrayRequest($"/business/{businessId}/report/payconditioncomparison/download{ToQueryString("jobId=" + request.JobId)}", Method.Get);
+        }
+
+        /// <summary>
+        /// Download Pay Conditions Comparison Report
+        /// </summary>
+        /// <remarks>
+        /// Downloads the file (PDF or Excel) generated by a completed job previously started via
+        /// `pdf/request` or `xlsx/request`.
+        /// </remarks>
+        public Task<byte[]> DownloadPayConditionsComparisonReportAsync(int businessId, DownloadPayConditionsComparisonReportQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiByteArrayRequestAsync($"/business/{businessId}/report/payconditioncomparison/download{ToQueryString("jobId=" + request.JobId)}", Method.Get, cancellationToken);
         }
 
         /// <summary>

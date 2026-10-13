@@ -40,5 +40,6 @@ namespace KeyPayV2.Uk.Models.DeductionCategories
         public List<PayCategoryType> IncludedPayCategoryTypes { get; set; }
         public List<Int32> ExcludedPayCategoryIds { get; set; }
         public decimal? DefaultPercentageRate { get; set; }
+        public string UnionLocal { get; set; }
     }
 }
