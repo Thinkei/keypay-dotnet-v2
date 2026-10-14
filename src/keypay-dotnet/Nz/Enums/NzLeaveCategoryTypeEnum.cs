@@ -5,6 +5,9 @@ namespace KeyPayV2.Nz.Enums
 {
     public enum NzLeaveCategoryTypeEnum
     {
-        Standard
+        Standard,
+        LeaveWithoutPay,
+        SickLeave,
+        DomesticViolenceLeave
     }
 }
