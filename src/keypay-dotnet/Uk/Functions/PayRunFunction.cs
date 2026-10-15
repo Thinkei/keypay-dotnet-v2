@@ -968,7 +968,8 @@ namespace KeyPayV2.Uk.Functions
         /// Get Earnings Lines by Employee ID
         /// </summary>
         /// <remarks>
-        /// Gets all the earnings lines for a specific employee in a pay run.
+        /// Gets the earnings lines for a specific employee in a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public UkPayRunEarningsLineResponseModel GetEarningsLinesByEmployeeId(int businessId, int employeeId, int payRunId, GetEarningsLinesByEmployeeIdQueryModel request, ODataQuery oDataQuery = null)
@@ -980,7 +981,8 @@ namespace KeyPayV2.Uk.Functions
         /// Get Earnings Lines by Employee ID
         /// </summary>
         /// <remarks>
-        /// Gets all the earnings lines for a specific employee in a pay run.
+        /// Gets the earnings lines for a specific employee in a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public Task<UkPayRunEarningsLineResponseModel> GetEarningsLinesByEmployeeIdAsync(int businessId, int employeeId, int payRunId, GetEarningsLinesByEmployeeIdQueryModel request, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
@@ -992,7 +994,8 @@ namespace KeyPayV2.Uk.Functions
         /// Get Earnings Lines by Employee ID
         /// </summary>
         /// <remarks>
-        /// Gets all the earnings lines for a specific employee in a pay run.
+        /// Gets the earnings lines for a specific employee in a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public UkPayRunEarningsLineResponseModel GetEarningsLinesByEmployeeId(int businessId, int employeeId, int payRunId, ODataQuery oDataQuery = null)
@@ -1004,7 +1007,8 @@ namespace KeyPayV2.Uk.Functions
         /// Get Earnings Lines by Employee ID
         /// </summary>
         /// <remarks>
-        /// Gets all the earnings lines for a specific employee in a pay run.
+        /// Gets the earnings lines for a specific employee in a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public Task<UkPayRunEarningsLineResponseModel> GetEarningsLinesByEmployeeIdAsync(int businessId, int employeeId, int payRunId, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
@@ -1016,7 +1020,8 @@ namespace KeyPayV2.Uk.Functions
         /// List Earnings Lines
         /// </summary>
         /// <remarks>
-        /// Lists all the earnings lines for a pay run.
+        /// Lists the earnings lines for a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public UkPayRunEarningsLineResponseModel ListEarningsLines(int businessId, int payRunId, ListEarningsLinesQueryModel request, ODataQuery oDataQuery = null)
@@ -1028,7 +1033,8 @@ namespace KeyPayV2.Uk.Functions
         /// List Earnings Lines
         /// </summary>
         /// <remarks>
-        /// Lists all the earnings lines for a pay run.
+        /// Lists the earnings lines for a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public Task<UkPayRunEarningsLineResponseModel> ListEarningsLinesAsync(int businessId, int payRunId, ListEarningsLinesQueryModel request, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
@@ -1040,7 +1046,8 @@ namespace KeyPayV2.Uk.Functions
         /// List Earnings Lines
         /// </summary>
         /// <remarks>
-        /// Lists all the earnings lines for a pay run.
+        /// Lists the earnings lines for a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public UkPayRunEarningsLineResponseModel ListEarningsLines(int businessId, int payRunId, ODataQuery oDataQuery = null)
@@ -1052,7 +1059,8 @@ namespace KeyPayV2.Uk.Functions
         /// List Earnings Lines
         /// </summary>
         /// <remarks>
-        /// Lists all the earnings lines for a pay run.
+        /// Lists the earnings lines for a pay run.
+        /// The number of results returned may be limited. Use $skip and $top to page through the results.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public Task<UkPayRunEarningsLineResponseModel> ListEarningsLinesAsync(int businessId, int payRunId, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
