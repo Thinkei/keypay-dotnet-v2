@@ -106,6 +106,7 @@ namespace KeyPayV2.Uk.Enums
         SuperMemberVerificationFundLevel,
         SuperMemberVerificationIncomplete,
         EmployeeExceeded5000KmThreshold,
-        NzCasualLeaveEligibilityTestNotPassed
+        NzCasualLeaveEligibilityTestNotPassed,
+        BiKExtraPeriodRecalculation
     }
 }

@@ -13,6 +13,7 @@ namespace KeyPayV2.Uk.Models.Reporting
         public decimal PostGradLoans { get; set; }
         public decimal NetCISDeductions { get; set; }
         public decimal EmployerNationalInsurance { get; set; }
+        public decimal NiClass1ABenefits { get; set; }
         public decimal EmployeeNationalInsurance { get; set; }
         public decimal NationalInsuranceDeductions { get; set; }
         public decimal HmrcPayment { get; set; }
