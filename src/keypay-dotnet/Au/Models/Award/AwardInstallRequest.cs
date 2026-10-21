@@ -20,6 +20,7 @@ namespace KeyPayV2.Au.Models.Award
         public bool? PreserveCustomLeaveAllowanceTemplates { get; set; }
         public bool? PreserveAutoProgressionSettings { get; set; }
         public bool? PreserveCustomPayRateTemplates { get; set; }
+        public bool? PreserveCustomTieredLongServiceLeaveTemplates { get; set; }
         public bool? PreserveCustomEmploymentAgreements { get; set; }
     }
 }

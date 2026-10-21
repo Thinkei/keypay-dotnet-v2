@@ -20,5 +20,6 @@ namespace KeyPayV2.Au.Models.EmploymentAgreement
         [JsonConverter(typeof(StringEnumConverter))]
         public LeaveAccrualStartDateType? LeaveAccrualStartDateType { get; set; }
         public DateTime? LeaveYearStart { get; set; }
+        public int? TieredLongServiceLeaveTemplateId { get; set; }
     }
 }

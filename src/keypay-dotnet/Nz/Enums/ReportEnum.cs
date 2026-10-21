@@ -111,6 +111,7 @@ namespace KeyPayV2.Nz.Enums
         PayConditionComparisonReport,
         QualifyingEarningsReport,
         CasualConversionReport,
-        HeroClearCterReport
+        HeroClearCterReport,
+        LslEligibilityReport
     }
 }
