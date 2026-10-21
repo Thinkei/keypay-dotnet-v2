@@ -13,6 +13,7 @@ namespace KeyPayV2.Sg.Enums
         Citibank,
         HSBC,
         BNPParibas,
-        Mizuho
+        Mizuho,
+        JpMorgan
     }
 }
