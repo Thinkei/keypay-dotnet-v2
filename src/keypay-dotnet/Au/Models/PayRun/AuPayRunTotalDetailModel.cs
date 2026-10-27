@@ -27,6 +27,7 @@ namespace KeyPayV2.Au.Models.PayRun
         public decimal PaygAdjustmentsAmount { get; set; }
         public bool SuperContributionsCapApplied { get; set; }
         public decimal PaygPaymentTotal { get; set; }
+        public decimal StslAmount { get; set; }
         public int Id { get; set; }
         public string EmployeeName { get; set; }
         public decimal TotalHours { get; set; }
