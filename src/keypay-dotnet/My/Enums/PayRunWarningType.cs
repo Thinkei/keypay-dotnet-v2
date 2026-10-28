@@ -109,6 +109,8 @@ namespace KeyPayV2.My.Enums
         NzCasualLeaveEligibilityTestNotPassed,
         BiKExtraPeriodRecalculation,
         TieredLslTierNegativeBalance,
-        TieredLslCompletedBlocksLeftover
+        TieredLslCompletedBlocksLeftover,
+        CpfInputDivergenceUnfinalisedPayRun,
+        CpfInputDivergenceFinalisedPayRun
     }
 }
