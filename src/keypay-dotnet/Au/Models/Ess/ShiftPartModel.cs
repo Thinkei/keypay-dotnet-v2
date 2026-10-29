@@ -27,5 +27,6 @@ namespace KeyPayV2.Au.Models.Ess
         public NominalLeaveCategory LeaveCategory { get; set; }
         public NominalLocation Location { get; set; }
         public bool IsAllowanceOrUnitBased { get; set; }
+        public ICollection<String> AppliedRules { get; set; }
     }
 }
