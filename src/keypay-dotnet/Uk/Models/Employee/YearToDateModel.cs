@@ -15,5 +15,7 @@ namespace KeyPayV2.Uk.Models.Employee
         public YearToDatePensionSection Pension { get; set; }
         public YearToDateAnnotatedSection Deductions { get; set; }
         public YearToDateLinkSection NetPay { get; set; }
+        public int SelectedTaxYear { get; set; }
+        public IEnumerable<Int32> PriorYearSummaryYears { get; set; }
     }
 }
