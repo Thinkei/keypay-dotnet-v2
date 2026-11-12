@@ -37,6 +37,8 @@ namespace KeyPayV2.Au.Enums
         HeroClearPayoutCompleted,
         HeroClearPayoutPartiallyCompleted,
         HeroClearPayoutFailed,
-        HeroClearApproverUnavailable
+        HeroClearApproverUnavailable,
+        HeroClearDisbursementPartiallyFailed,
+        HeroClearDisbursementFailed
     }
 }

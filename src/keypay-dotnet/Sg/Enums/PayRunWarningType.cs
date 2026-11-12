@@ -111,6 +111,7 @@ namespace KeyPayV2.Sg.Enums
         TieredLslTierNegativeBalance,
         TieredLslCompletedBlocksLeftover,
         CpfInputDivergenceUnfinalisedPayRun,
-        CpfInputDivergenceFinalisedPayRun
+        CpfInputDivergenceFinalisedPayRun,
+        SsaClosurePayRunWarning
     }
 }
