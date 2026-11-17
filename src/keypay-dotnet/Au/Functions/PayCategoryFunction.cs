@@ -21,10 +21,16 @@ namespace KeyPayV2.Au.Functions
         Task<AuPayCategoryModel> GetPayCategoryByIdAsync(int businessId, int id, CancellationToken cancellationToken = default);
         AuPayCategoryModel UpdatePayCategory(int businessId, int id, AuPayCategoryModel payCategory);
         Task<AuPayCategoryModel> UpdatePayCategoryAsync(int businessId, int id, AuPayCategoryModel payCategory, CancellationToken cancellationToken = default);
+        List<AuPayCategoryModel> ListPayCategories(int businessId, ListPayCategoriesQueryModel request, ODataQuery oDataQuery = null);
+        Task<List<AuPayCategoryModel>> ListPayCategoriesAsync(int businessId, ListPayCategoriesQueryModel request, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default);
         List<AuPayCategoryModel> ListPayCategories(int businessId, ODataQuery oDataQuery = null);
         Task<List<AuPayCategoryModel>> ListPayCategoriesAsync(int businessId, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default);
         void DeletePayCategory(int businessId, int id);
         Task DeletePayCategoryAsync(int businessId, int id, CancellationToken cancellationToken = default);
+        void MarkPayCategoryInactive(int businessId, int id);
+        Task MarkPayCategoryInactiveAsync(int businessId, int id, CancellationToken cancellationToken = default);
+        void ReactivatePayCategory(int businessId, int id, ReactivatePayCategoryApiRequest request);
+        Task ReactivatePayCategoryAsync(int businessId, int id, ReactivatePayCategoryApiRequest request, CancellationToken cancellationToken = default);
     }
     public class PayCategoryFunction : BaseFunction, IPayCategoryFunction
     {
@@ -100,7 +106,31 @@ namespace KeyPayV2.Au.Functions
         /// List Pay Categories
         /// </summary>
         /// <remarks>
-        /// Lists all the pay categories for the business
+        /// Lists the pay categories for the business. Inactive pay categories are excluded unless includeInactive is true.
+        /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
+        /// </remarks>
+        public List<AuPayCategoryModel> ListPayCategories(int businessId, ListPayCategoriesQueryModel request, ODataQuery oDataQuery = null)
+        {
+            return ApiRequest<List<AuPayCategoryModel>>($"/business/{businessId}/paycategory{ToQueryString("query=" + request.Query, "includeInactive=" + request.IncludeInactive)}{ODataQuery.ToQueryString(oDataQuery, "&")}", Method.Get);
+        }
+
+        /// <summary>
+        /// List Pay Categories
+        /// </summary>
+        /// <remarks>
+        /// Lists the pay categories for the business. Inactive pay categories are excluded unless includeInactive is true.
+        /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
+        /// </remarks>
+        public Task<List<AuPayCategoryModel>> ListPayCategoriesAsync(int businessId, ListPayCategoriesQueryModel request, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<List<AuPayCategoryModel>>($"/business/{businessId}/paycategory{ToQueryString("query=" + request.Query, "includeInactive=" + request.IncludeInactive)}{ODataQuery.ToQueryString(oDataQuery, "&")}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// List Pay Categories
+        /// </summary>
+        /// <remarks>
+        /// Lists the pay categories for the business. Inactive pay categories are excluded unless includeInactive is true.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public List<AuPayCategoryModel> ListPayCategories(int businessId, ODataQuery oDataQuery = null)
@@ -112,7 +142,7 @@ namespace KeyPayV2.Au.Functions
         /// List Pay Categories
         /// </summary>
         /// <remarks>
-        /// Lists all the pay categories for the business
+        /// Lists the pay categories for the business. Inactive pay categories are excluded unless includeInactive is true.
         /// This operation supports OData queries (only $filter, $orderby, $top, $skip).
         /// </remarks>
         public Task<List<AuPayCategoryModel>> ListPayCategoriesAsync(int businessId, ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
@@ -140,6 +170,52 @@ namespace KeyPayV2.Au.Functions
         public Task DeletePayCategoryAsync(int businessId, int id, CancellationToken cancellationToken = default)
         {
             return ApiRequestAsync($"/business/{businessId}/paycategory/{id}", Method.Delete, cancellationToken);
+        }
+
+        /// <summary>
+        /// Mark Pay Category Inactive
+        /// </summary>
+        /// <remarks>
+        /// Marks the pay category, and every one of its linked pay categories, as inactive.
+        /// Rejected with an explanatory message if the pay category is still referenced elsewhere.
+        /// </remarks>
+        public void MarkPayCategoryInactive(int businessId, int id)
+        {
+            ApiRequest($"/business/{businessId}/paycategory/{id}/inactivate", Method.Post);
+        }
+
+        /// <summary>
+        /// Mark Pay Category Inactive
+        /// </summary>
+        /// <remarks>
+        /// Marks the pay category, and every one of its linked pay categories, as inactive.
+        /// Rejected with an explanatory message if the pay category is still referenced elsewhere.
+        /// </remarks>
+        public Task MarkPayCategoryInactiveAsync(int businessId, int id, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync($"/business/{businessId}/paycategory/{id}/inactivate", Method.Post, cancellationToken);
+        }
+
+        /// <summary>
+        /// Reactivate Pay Category
+        /// </summary>
+        /// <remarks>
+        /// Reactivates the pay category, optionally cascading to its linked pay categories.
+        /// </remarks>
+        public void ReactivatePayCategory(int businessId, int id, ReactivatePayCategoryApiRequest request)
+        {
+            ApiRequest($"/business/{businessId}/paycategory/{id}/reactivate", request, Method.Post);
+        }
+
+        /// <summary>
+        /// Reactivate Pay Category
+        /// </summary>
+        /// <remarks>
+        /// Reactivates the pay category, optionally cascading to its linked pay categories.
+        /// </remarks>
+        public Task ReactivatePayCategoryAsync(int businessId, int id, ReactivatePayCategoryApiRequest request, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync($"/business/{businessId}/paycategory/{id}/reactivate", request, Method.Post, cancellationToken);
         }
     }
 }

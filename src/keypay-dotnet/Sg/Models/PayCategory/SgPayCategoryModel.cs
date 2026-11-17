@@ -36,5 +36,6 @@ namespace KeyPayV2.Sg.Models.PayCategory
         public bool IsPrimary { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public PayCategoryQueueStatusEnum QueueStatus { get; set; }
+        public bool IsInactive { get; set; }
     }
 }
