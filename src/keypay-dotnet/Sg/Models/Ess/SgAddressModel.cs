@@ -17,6 +17,7 @@ namespace KeyPayV2.Sg.Models.Ess
         public string UnitNumber { get; set; }
         public string LevelNumber { get; set; }
         public string StreetName { get; set; }
+        public bool? IsHouseNumber { get; set; }
         public string StreetAddress { get; set; }
         public string AddressLine2 { get; set; }
         public string Postcode { get; set; }

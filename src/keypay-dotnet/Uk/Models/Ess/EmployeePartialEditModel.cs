@@ -58,6 +58,7 @@ namespace KeyPayV2.Uk.Models.Ess
         public string ResidentialLevelNumber { get; set; }
         public string ResidentialUnitNumber { get; set; }
         public string ResidentialStreetName { get; set; }
+        public bool? ResidentialIsHouseNumber { get; set; }
         public string ResidentialAddressLine3 { get; set; }
         public string PostalStreetAddress { get; set; }
         public string PostalAddressLine2 { get; set; }
@@ -74,6 +75,7 @@ namespace KeyPayV2.Uk.Models.Ess
         public string PostalLevelNumber { get; set; }
         public string PostalUnitNumber { get; set; }
         public string PostalStreetName { get; set; }
+        public bool? PostalIsHouseNumber { get; set; }
         public string PostalAddressLine3 { get; set; }
         public bool IsPostalAddressSameAsResidential { get; set; }
         public string Email { get; set; }

@@ -83,6 +83,8 @@ namespace KeyPayV2.Nz.Models.Ess
         public string PostalUnitNumber { get; set; }
         public string ResidentialStreetName { get; set; }
         public string PostalStreetName { get; set; }
+        public bool? ResidentialIsHouseNumber { get; set; }
+        public bool? PostalIsHouseNumber { get; set; }
         public string ResidentialAddressLine3 { get; set; }
         public string PostalAddressLine3 { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
