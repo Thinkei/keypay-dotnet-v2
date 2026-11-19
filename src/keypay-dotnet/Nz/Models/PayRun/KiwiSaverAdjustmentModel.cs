@@ -8,6 +8,8 @@ namespace KeyPayV2.Nz.Models.PayRun
 {
     public class KiwiSaverAdjustmentModel
     {
+        public IList<Int32> ReportingDimensionValueIds { get; set; }
+        public IDictionary<string,IList<string>> ReportingDimensionValueNames { get; set; }
         public string Notes { get; set; }
         public decimal Amount { get; set; }
         public string ContributionType { get; set; }

@@ -203,8 +203,6 @@ namespace KeyPayV2.Uk.Functions
         Task<UkSspApiModel> CreateStatutorySickPayAsync(int businessId, int employeeId, UkSspApiModel ssp, CancellationToken cancellationToken = default);
         UkSspApiModel GetStatutorySickPayById(int businessId, int employeeId, int periodOfLeaveId);
         Task<UkSspApiModel> GetStatutorySickPayByIdAsync(int businessId, int employeeId, int periodOfLeaveId, CancellationToken cancellationToken = default);
-        UkUnstructuredEmployeeModel GetEmployeeByExternalId(int businessId);
-        Task<UkUnstructuredEmployeeModel> GetEmployeeByExternalIdAsync(int businessId, CancellationToken cancellationToken = default);
         UkUnstructuredEmployeeModel GetEmployeeByExternalId(int businessId, string externalId);
         Task<UkUnstructuredEmployeeModel> GetEmployeeByExternalIdAsync(int businessId, string externalId, CancellationToken cancellationToken = default);
         UkUnstructuredEmployeeModel GetEmployeeByExternalReferenceId(int businessId, string externalReferenceId, ExternalService source);
@@ -2286,28 +2284,6 @@ namespace KeyPayV2.Uk.Functions
         public Task<UkSspApiModel> GetStatutorySickPayByIdAsync(int businessId, int employeeId, int periodOfLeaveId, CancellationToken cancellationToken = default)
         {
             return ApiRequestAsync<UkSspApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/ssp/{periodOfLeaveId}", Method.Get, cancellationToken);
-        }
-
-        /// <summary>
-        /// Get Employee By External ID
-        /// </summary>
-        /// <remarks>
-        /// Gets the employee with the specified external ID.
-        /// </remarks>
-        public UkUnstructuredEmployeeModel GetEmployeeByExternalId(int businessId)
-        {
-            return ApiRequest<UkUnstructuredEmployeeModel>($"/business/{businessId}/employee", Method.Get);
-        }
-
-        /// <summary>
-        /// Get Employee By External ID
-        /// </summary>
-        /// <remarks>
-        /// Gets the employee with the specified external ID.
-        /// </remarks>
-        public Task<UkUnstructuredEmployeeModel> GetEmployeeByExternalIdAsync(int businessId, CancellationToken cancellationToken = default)
-        {
-            return ApiRequestAsync<UkUnstructuredEmployeeModel>($"/business/{businessId}/employee", Method.Get, cancellationToken);
         }
 
         /// <summary>
