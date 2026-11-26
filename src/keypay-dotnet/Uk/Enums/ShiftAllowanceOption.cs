@@ -9,6 +9,7 @@ namespace KeyPayV2.Uk.Enums
         PerHourWorked,
         PercentageOfShiftCost,
         PerShiftUnit,
-        PerDay
+        PerDay,
+        PercentageOfPayCategoryEarnings
     }
 }
